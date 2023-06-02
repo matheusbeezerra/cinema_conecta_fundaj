@@ -1,14 +1,13 @@
-import 'dart:ui';
+import 'package:conecta_fundaj/screens/cinema_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'screens/categories_screen.dart';
-import 'components/category_item.dart';
-import 'screens/categories_exemple1.dart';
+import 'screens/cinema_screen.dart';
+import 'screens/categories_cinema.dart';
 import 'utils/app_route.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+    const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
       systemNavigationBarColor: Colors.transparent,
     ),
@@ -25,13 +24,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color.fromARGB(255, 29, 30, 30),
+          primary: const Color.fromARGB(255, 80, 80, 80),
           secondary: Colors.blueAccent[900],
         ),
         fontFamily: 'Raleway',
-        canvasColor: Color.fromRGBO(255, 255, 255, 1), //Background Fundo
+        canvasColor: Color.fromARGB(255, 188, 188, 188), //BACKGROUND FUNDO
         textTheme: ThemeData.dark().textTheme.copyWith(
-              headline6: TextStyle(
+              titleLarge: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
               ),
@@ -39,7 +38,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         AppRoutes.HOME: (context) => CategoryScreen(),
-        AppRoutes.CATEGORIES_EXEMPLE: (context) => CategoriesExample1()
+        AppRoutes.CATEGORIES_CINEMA: (context) => CategoriesCinema(),
+        AppRoutes.CINEMA_DETAIL: (context) => CinemaDetail(),
       },
     );
   }
